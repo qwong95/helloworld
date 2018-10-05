@@ -1,0 +1,27 @@
+#%RAML 1.0
+title: Hello World
+description: Basic Hello World Program
+version: v1
+protocols:
+  - HTTP
+  - HTTPS
+baseUri: https://mocksvc.mulesoft.com/mocks/8d3f375c-f0f5-4a07-91d6-b70a494ada6e # baseUri: 'http://helloworld-v1.cloudhub.io'
+/helloworld:
+  get:
+    headers:
+      newHeader:
+        example: Gopichand
+        description: Name Header
+        type: string
+        minLength: 2
+    responses: 
+      200:
+        body: 
+          application/json:
+            example:
+              message : "Hello Gopichand"
+      400:
+        body: 
+          application/json:
+            example:
+              errormessage : "BadData"
